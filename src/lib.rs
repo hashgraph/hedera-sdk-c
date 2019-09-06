@@ -1,4 +1,4 @@
-#![feature(try_from, type_ascription, untagged_unions, maybe_uninit)]
+#![feature(untagged_unions)]
 
 #[macro_use]
 mod macros;
@@ -17,6 +17,7 @@ mod id;
 mod timestamp;
 mod transaction_id;
 mod transaction_record;
+mod function_result;
 
 mod account_info;
 mod contract_info;
@@ -25,6 +26,7 @@ mod file_info;
 mod query_contract_get_bytecode;
 mod query_contract_get_info;
 mod query_contract_get_records;
+mod query_contract_call;
 
 mod query_crypto_get_account_balance;
 mod query_crypto_get_account_records;
@@ -41,11 +43,9 @@ mod query_transaction_get_record;
 
 mod transaction;
 
-mod transaction_admin_delete;
-mod transaction_admin_recover;
-
 mod transaction_contract_call;
 mod transaction_contract_create;
+mod transaction_contract_delete;
 mod transaction_contract_update;
 
 mod transaction_crypto_add_claim;

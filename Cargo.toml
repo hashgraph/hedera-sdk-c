@@ -1,15 +1,19 @@
 [package]
 name = "hedera"
 publish = false
-version = "0.0.0"
+version = "0.1.0-alpha.0"
+description = "Hedera SDK for C (base SDK for all non-Java Hedera SDKs)"
+license = "Apache-2.0"
+repository = "https://github.com/launchbadge/hedera-sdk-c"
 edition = "2018"
-
-[lib]
-crate-type = ["staticlib"]
+keywords = ["hedera", "sdk", "rust"]
+authors = [
+    "LaunchBadge <contact@launchbadge.com>",
+    "Lonestar Data Technologies <sam@lonestardata.io>"
+]
 
 [dependencies]
-# hedera = "0.4.1"
-hedera = { git = "https://github.com/hashgraph/hedera-sdk-rust" }
+hedera = { git = "https://github.com/launchbadge/hedera-sdk-rust" }
 libc = { version = "0.2.44" }
 slotmap = { version = "0.3.0", features = [ "unstable" ] }
 once_cell = "0.1.6"
@@ -24,3 +28,10 @@ lto = true
 codegen-units = 1
 panic = 'abort'
 incremental = false
+
+[profile.dev]
+lto = true
+codegen-units = 1
+panic = 'abort'
+incremental = false
+debug-assertions = true

@@ -8,7 +8,7 @@
 extern "C" {
 #endif
 
-extern HederaTransaction* hedera_transaction__contract_call__new(HederaClient*);
+extern HederaTransaction* hedera_transaction__contract_call__new(HederaClient*, HederaContractId id);
 
 extern void hedera_transaction__contract_call__set_gas(HederaTransaction*, uint64_t gas);
 

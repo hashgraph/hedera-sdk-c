@@ -18,16 +18,6 @@ def_tx_method!(
 );
 
 def_tx_method!(
-    TransactionCryptoCreate: hedera_transaction__crypto_create__set_proxy_fraction(i32):
-        proxy_fraction
-);
-
-def_tx_method!(
-    TransactionCryptoCreate: hedera_transaction__crypto_create__set_max_receive_proxy_fraction(i32):
-        max_receive_proxy_fraction
-);
-
-def_tx_method!(
     TransactionCryptoCreate: hedera_transaction__crypto_create__set_auto_renew_period(CDuration):
         auto_renew_period
 );

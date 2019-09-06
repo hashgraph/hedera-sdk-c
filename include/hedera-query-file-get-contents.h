@@ -14,7 +14,7 @@ extern HederaQuery* hedera_query__file_get_contents__new(
     HederaFileId file_id
 );
 
-extern HederaError hedera_query__file_get_contents_get(
+extern HederaError hedera_query__file_get_contents__get(
     HederaQuery*, 
     HederaArray**
 );

@@ -13,11 +13,6 @@ def_tx_method!(
 );
 
 def_tx_method!(
-    TransactionCryptoUpdate: hedera_transaction__crypto_update__set_proxy_fraction(i32):
-        proxy_fraction
-);
-
-def_tx_method!(
     TransactionCryptoUpdate: hedera_transaction__crypto_update__set_send_record_threshold(u64):
         send_record_threshold
 );

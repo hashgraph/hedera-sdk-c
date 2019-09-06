@@ -31,7 +31,7 @@ pub unsafe extern "C" fn hedera_client_set_operator(
 ) {
     let user_data: usize = transmute(user_data);
     (&mut *client).set_operator(operator, move || -> Result<SecretKey, Error> {
-        let mut key = MaybeUninit::<SecretKey>::uninitialized();
+        let mut key = MaybeUninit::<SecretKey>::uninit();
         let user_data: *const c_void = transmute(user_data);
 
         let res = secret(user_data, key.as_mut_ptr());
@@ -39,7 +39,7 @@ pub unsafe extern "C" fn hedera_client_set_operator(
             bail!("failed to get the operator secret key (via callback given to [hedera_client_set_operator])");
         }
 
-        Ok(key.into_inner())
+        Ok(key.assume_init())
     });
 }
 

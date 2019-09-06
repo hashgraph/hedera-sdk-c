@@ -19,7 +19,6 @@
      bool deleted;
      HederaAccountId proxy_account_id;
 
-     int32_t proxy_fraction;
      int64_t proxy_received;
 
      HederaPublicKey key;

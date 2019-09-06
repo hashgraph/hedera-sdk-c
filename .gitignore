@@ -9,6 +9,9 @@ target/
 # C artifacts
 build/
 
+# Shared Libraries
+libs/
+
 # CMake
 CMakeCache.txt
 CMakeFiles
@@ -20,3 +23,6 @@ cmake_install.cmake
 install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
+
+# Local Development
+build_test

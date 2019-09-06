@@ -7,25 +7,11 @@
 #include "hedera-timestamp.h"
 #include "hedera-duration.h"
 #include "hedera-transaction-receipt.h"
+#include "hedera-function-result.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-typedef struct {
-    HederaArray bloom;
-    HederaArray topic;
-    HederaArray data;
-} HederaContractLogInfo;
-
-typedef struct {
-    HederaContractId contract_id;
-    HederaArray contract_call_result;
-    char* error_message;
-    HederaArray bloom;
-    uint64_t gas_used;
-    HederaArray log_info;
-} HederaContractFunctionResult;
 
 typedef struct {
     HederaAccountId account_id;

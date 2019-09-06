@@ -9,5 +9,5 @@ def_tx_new!(TransactionFileUpdate: hedera_transaction__file_update__new(FileId))
 def_tx_method!(TransactionFileUpdate: hedera_transaction__file_update__set_key(PublicKey): key);
 
 def_tx_method!(
-    TransactionFileUpdate: hedera_transaction__file_Update__set_contents(array_of(u8)): contents
+    TransactionFileUpdate: hedera_transaction__file_update__set_contents(array_of(u8)): contents
 );

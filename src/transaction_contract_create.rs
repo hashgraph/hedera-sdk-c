@@ -28,11 +28,6 @@ def_tx_method!(
 );
 
 def_tx_method!(
-    TransactionContractCreate: hedera_transaction__contract_create__set_proxy_fraction(i32):
-        proxy_fraction
-);
-
-def_tx_method!(
     TransactionContractCreate:
         hedera_transaction__contract_create__set_auto_renew_period(CDuration):
         auto_renew_period

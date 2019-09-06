@@ -5,7 +5,7 @@ project(hedera)
 include_directories(include)
 
 # [macOS] -framework security
-find_library(SECURITY_FRAMEWORK Security)
+#find_library(SECURITY_FRAMEWORK Security)
 
 file(GLOB examples "examples/*.c")
 foreach(example ${examples})
@@ -17,7 +17,7 @@ foreach(example ${examples})
     set_target_properties(${target} PROPERTIES RUNTIME_OUTPUT_DIRECTORY build/examples)
 
     # [macOS] -framework security
-    target_link_libraries(${target} ${SECURITY_FRAMEWORK})
+#    target_link_libraries(${target} ${SECURITY_FRAMEWORK})
 
     # -l hedera
     target_link_directories(${target} PRIVATE target/release)

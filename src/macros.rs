@@ -98,6 +98,88 @@ macro_rules! def_query {
 }
 
 #[macro_export]
+macro_rules! def_query_new {
+    // a single parameter query
+    ($constructor:ident: $verb:ident($p:ty)) => {
+        paste::item! {
+            #[no_mangle]
+            pub unsafe extern "C" fn [<hedera_query__ $verb __new>] (
+                client: *mut hedera::Client,
+                _1: $p,
+            ) -> *mut hedera::query::Query<$constructor> {
+                Box::into_raw(Box::new($constructor::new(&*client, _1.into())))
+            }
+        }
+    };
+
+    // a multi parameter query
+    ($constructor:ident: $verb:ident($p1:ty, $p2:ty, array_of($p3:ty), $p4:ty) -> $cty:ty) => {
+        use std::slice;
+
+        paste::item! {
+            #[no_mangle]
+            pub unsafe extern "C" fn [<hedera_query__ $verb __new>]  (
+                client: *mut hedera::Client,
+                _1: $p1,
+                _2: $p2,
+                _3: *const $p3,
+                _3_len: usize,
+                _4: $p4
+            ) -> *mut hedera::query::Query<$constructor> {
+                let _3 = slice::from_raw_parts(_3, _3_len);
+                Box::into_raw(Box::new($constructor::new(&*client, _1.into(), _2.into(), _3.into(), _4.into())))
+            }
+        }
+    };
+}
+
+#[macro_export]
+macro_rules! def_query_method {
+    // a single parameter query function
+    ($constructor:ident: $name:ident($ty:ty): $member:ident) => {
+        #[no_mangle]
+        pub unsafe extern "C" fn $name(
+            qu: *mut hedera::query::Query<$constructor>,
+            _1: $ty,
+        ) {
+            (&mut *qu).$member(_1.into());
+        }
+    };
+
+    // single parameter (array)
+    ($constructor:ident: $name:ident(array_of($ty:ty)): $member:ident) => {
+        use std::slice;
+
+        #[no_mangle]
+        pub unsafe extern "C" fn $name(
+            qu: *mut hedera::query::Query<$constructor>,
+            _1: *const $ty,
+            _1_len: usize
+        ) {
+            let _1 = slice::from_raw_parts(_1, _1_len);
+
+            (&mut *qu).$member(_1.into());
+        }
+    };
+}
+
+macro_rules! def_query_exec {
+    ($constructor:ident: $verb:ident() -> $cty:ty) => {
+        paste::item! {
+            #[no_mangle]
+            pub unsafe extern "C" fn [<hedera_query__ $verb __execute>] (
+                query: *mut hedera::query::Query<$constructor>,
+                out: *mut $cty,
+            ) -> crate::errors::HederaResult {
+                *out = try_ffi!(Box::from_raw(query).get()).into();
+
+                crate::errors::HederaResult::Success
+            }
+        }
+    };
+}
+
+#[macro_export]
 macro_rules! def_tx_new {
     ($constructor:ident: $name:ident) => {
         #[no_mangle]

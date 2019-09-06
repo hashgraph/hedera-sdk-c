@@ -14,12 +14,12 @@ def_tx_method!(
 );
 
 def_tx_method!(
-    TransactionContractUpdate: hedera_transaction__contract_update__proxy_account(AccountId):
+    TransactionContractUpdate: hedera_transaction__contract_update__set_proxy_account(AccountId):
         proxy_account
 );
 
 // todo: auto renew period
 
 def_tx_method!(
-    TransactionContractUpdate: hedera_transaction__contract_Update__set_file(FileId): file
+    TransactionContractUpdate: hedera_transaction__contract_update__set_file(FileId): file
 );

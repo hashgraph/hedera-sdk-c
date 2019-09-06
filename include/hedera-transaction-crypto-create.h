@@ -21,9 +21,6 @@ extern void hedera_transaction__crypto_create__set_key(
 extern void hedera_transaction__crypto_create__set_proxy_account(
     HederaTransaction*, HederaAccountId id);
 
-extern void hedera_transaction__crypto_create__set_proxy_fraction(
-    HederaTransaction*, int32_t fraction);
-
 extern void hedera_transaction__crypto_create__set_max_receive_proxy_faction(
     HederaTransaction*, int32_t fraction);
 

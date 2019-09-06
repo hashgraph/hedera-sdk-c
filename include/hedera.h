@@ -14,8 +14,10 @@
 #include "hedera-file-info.h"
 #include "hedera-entity.h"
 #include "hedera-alloc.h"
+#include "hedera-function-result.h"
 
 #include "hedera-query.h"
+#include "hedera-query-contract-call.h"
 #include "hedera-query-contract-get-bytecode.h"
 #include "hedera-query-contract-get-info.h"
 #include "hedera-query-contract-get-records.h"
@@ -30,10 +32,9 @@
 #include "hedera-query-transaction-get-record.h"
 
 #include "hedera-transaction.h"
-#include "hedera-transaction-admin-delete.h"
-#include "hedera-transaction-admin-recover.h"
 #include "hedera-transaction-contract-call.h"
 #include "hedera-transaction-contract-create.h"
+#include "hedera-transaction-contract-delete.h"
 #include "hedera-transaction-contract-update.h"
 #include "hedera-transaction-crypto-add-claim.h"
 #include "hedera-transaction-crypto-create.h"

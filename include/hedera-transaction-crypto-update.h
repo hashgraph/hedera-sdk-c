@@ -26,11 +26,6 @@ extern void hedera_transaction__crypto_update__set_proxy_account(
     HederaAccountId proxy_account
 );
 
-extern void hedera_transaction__crypto_update__set_proxy_fraction(
-    HederaTransaction*, 
-    int32_t proxy_fraction
-);
-
 extern void hedera_transaction__crypto_update__set_send_record_threshold(
     HederaTransaction*, 
     uint64_t send_record_threshold
