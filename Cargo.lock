@@ -444,7 +444,7 @@ dependencies = [
 [[package]]
 name = "hedera"
 version = "0.4.2-alpha.0"
-source = "git+https://github.com/launchbadge/hedera-sdk-rust#75e697095d78c7b4ee2ddd59f1864ff957c16616"
+source = "git+https://github.com/launchbadge/hedera-sdk-rust#a8952c8192568a004636d140e0250b750d34bdde"
 dependencies = [
  "bip39 0.6.0-beta.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "chrono 0.4.9 (registry+https://github.com/rust-lang/crates.io-index)",
