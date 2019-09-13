@@ -12,6 +12,9 @@ authors = [
     "Lonestar Data Technologies <sam@lonestardata.io>"
 ]
 
+[lib]
+crate-type = ["staticlib"]
+
 [dependencies]
 hedera = { git = "https://github.com/launchbadge/hedera-sdk-rust" }
 libc = { version = "0.2.44" }
